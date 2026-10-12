@@ -284,32 +284,6 @@ em { font-style: italic; color: var(--accent); }
 .job p:not(.label):not(.job__company) { color: var(--muted); max-width: 40em; }
 .job p + p:not(.job__company) { margin-top: 12px; }
 
-/* Contact */
-.contact { background: var(--bg-raised); border-top: 1px solid var(--line); }
-
-.contact__title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(40px, 7vw, 96px);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  max-width: 14em;
-  margin: 16px 0 clamp(40px, 6vw, 72px);
-}
-
-.contact__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.contact__links a {
-  display: block;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  font-size: clamp(18px, 2.2vw, 26px);
-  overflow-wrap: anywhere;
-  transition: border-color 0.2s, color 0.2s;
-}
-.contact__links a:hover { border-color: var(--accent); color: var(--accent); }
-.contact__links .label { display: block; margin-bottom: 8px; }
-
 /* Footer */
 .footer {
   display: flex;
@@ -375,7 +349,7 @@ em { font-style: italic; color: var(--accent); }
   body { font-size: 16px; }
   .nav__links a:not([href="#work"]):not(.nav__cta) { display: none; }
   .row, .project__media { gap: 8px; }
-  .facts, .contact__links { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
   .services li { gap: 12px; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 52px; transform: none; }
   .lightbox__stage { padding-bottom: 56px; }
