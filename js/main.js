@@ -6,34 +6,19 @@ const VIDEO_AR = 1.869;
 
 const PROJECTS = [
   {
-    title: "Captain's Cabin",
-    type: 'Game environment · Props',
-    text: 'A candle-lit ship cabin dressed with hand-modeled props: treasure map, spyglass, compass, chests, cutlass and coins. Built as a complete scene, from blockout to textured, lit final render.',
-    tags: ['Environment', 'Prop modeling', 'Texturing', 'Lighting'],
-    rows: [
-      [{ src: 'pirate/ship', ar: 1.778, cap: 'Final render' }],
-      [
-        { src: 'pirate/ship_1', ar: 1.778, cap: 'Final render — top view' },
-        { src: 'pirate/ship_2', ar: 1.778, cap: 'Final render — chest and cutlass' },
-      ],
-      [
-        { src: 'pirate/1', ar: 1.943, cap: 'Viewport — untextured geometry' },
-        { src: 'pirate/2', ar: 1.882, cap: 'Viewport — material preview' },
-        { src: 'pirate/3', ar: 1.877, cap: 'Viewport — material preview' },
-      ],
-    ],
-  },
-  {
     title: 'Meat Grinder',
     type: 'Industrial product · Hard-surface',
-    text: 'A commercial meat grinder modeled part by part: feed tray, auger housing, cutting plate, locking ring and motor body, finished in brushed stainless steel for a studio product shot.',
+    text: 'A commercial meat grinder modeled part by part: feed tray, auger housing, cutting plate, locking ring and motor body, finished in brushed stainless steel for a studio product shot and a short assembly animation.',
     tags: ['Hard-surface', 'Mechanical parts', 'Product render'],
     rows: [
       [
         { src: 'grinder/grinder', ar: 0.563, cap: 'Studio render' },
         { src: 'grinder/grinder1', ar: 0.563, cap: 'Studio render — front' },
       ],
-      [{ src: 'grinder/grinder', video: true, cap: 'Scene walkthrough in Blender' }],
+      [
+        { src: 'grinder/grinder1', video: true, ar: 1, loop: true, cap: 'Assembly animation' },
+        { src: 'grinder/grinder', video: true, cap: 'Scene walkthrough in Blender' },
+      ],
     ],
   },
   {
@@ -134,7 +119,7 @@ function renderProjects() {
       row.forEach((m) => {
         const tile = el('button', 'tile' + (m.video ? ' tile--video' : ''));
         tile.type = 'button';
-        tile.style.setProperty('--ar', m.video ? VIDEO_AR : m.ar);
+        tile.style.setProperty('--ar', m.ar || VIDEO_AR);
         tile.setAttribute('aria-label', `${p.title}: ${m.cap}`);
         const img = el('img');
         img.src = MEDIA + m.src + (m.video ? '-poster.webp' : '-sm.webp');
@@ -175,6 +160,7 @@ function showItem() {
     v.controls = true;
     v.autoplay = true;
     v.muted = true;
+    v.loop = !!m.loop;
     v.playsInline = true;
     stage.append(v);
   } else {

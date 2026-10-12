@@ -83,34 +83,36 @@ em { font-style: italic; color: var(--accent); }
 /* Hero */
 .hero {
   position: relative;
-  min-height: min(100svh, 1080px);
+  min-height: min(86svh, 860px);
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
 }
 
-.hero__bg {
-  position: absolute;
-  inset: 0;
+.hero__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 360px);
+  align-items: end;
+  gap: 32px clamp(32px, 5vw, 72px);
+  padding-block: 140px clamp(56px, 9vh, 104px);
+}
+
+.hero__photo {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: 40% 50%;
+  object-position: 50% 20%;
+  border-radius: 8px;
+  border: 1px solid var(--line);
 }
-
-.hero__shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top, var(--bg) 0%, rgba(15, 14, 12, 0.72) 38%, rgba(15, 14, 12, 0.25) 70%, rgba(15, 14, 12, 0.55) 100%);
-}
-
-.hero__inner { position: relative; padding-block: 140px clamp(56px, 9vh, 104px); }
 
 .hero__title {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(60px, 13vw, 176px);
+  font-size: clamp(60px, 11vw, 160px);
   line-height: 0.92;
   letter-spacing: -0.02em;
   margin: 16px 0 24px;
@@ -119,8 +121,6 @@ em { font-style: italic; color: var(--accent); }
 .hero__lead { max-width: 34em; font-size: clamp(17px, 1.6vw, 21px); color: var(--text); }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-
-.hero__credit { position: absolute; right: var(--gutter); bottom: 24px; }
 
 .btn {
   display: inline-block;
@@ -364,9 +364,10 @@ em { font-style: italic; color: var(--accent); }
 .lightbox__next { top: 50%; right: 12px; transform: translateY(-50%); }
 
 @media (max-width: 860px) {
+  .hero__inner { grid-template-columns: minmax(0, 1fr); padding-top: 104px; }
+  .hero__photo { order: -1; width: min(52vw, 240px); aspect-ratio: 1; }
   .split, .project { grid-template-columns: minmax(0, 1fr); }
   .project__sticky { position: static; }
-  .hero__credit { display: none; }
   .tile__cap { display: none; }
 }
 
