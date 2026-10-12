@@ -24,7 +24,7 @@ const PROJECTS = [
   {
     title: 'Glass Perfume Bottles',
     type: 'Product visualization · Study',
-    text: 'A study of an interlocking-ring perfume bottle in three tinted glass variants. The focus is on thick glass: refraction, liquid volume and embossed lettering.',
+    text: 'A study of an interlocking-ring perfume bottle in three tinted glass variants. The focus is on thick glass: refraction, liquid volume and embossed lettering. (Modeled with a Bvlgari perfume bottle as reference.)',
     tags: ['Product visualization', 'Glass materials', 'Study'],
     rows: [
       [{ src: 'perfume1/perfume1_1', ar: 1.778, cap: 'Three colour variants' }],
