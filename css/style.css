@@ -105,8 +105,10 @@ em { font-style: italic; color: var(--accent); }
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 50% 20%;
-  border-radius: 8px;
-  border: 1px solid var(--line);
+  opacity: 0.12;
+  filter: grayscale(1);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 72%);
 }
 
 .hero__title {
