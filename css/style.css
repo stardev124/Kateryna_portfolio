@@ -99,6 +99,24 @@ em { font-style: italic; color: var(--accent); }
   padding-block: 140px clamp(56px, 9vh, 104px);
 }
 
+.hero__photo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  max-width: 50%;
+  object-fit: cover;
+  object-position: 62% 40%;
+  opacity: 0.18;
+  filter: grayscale(1) brightness(1.3);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse at 60% 45%, #000 35%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 60% 45%, #000 35%, transparent 75%);
+}
+
+.hero__text { position: relative; z-index: 1; }
+
 .hero__title {
   font-family: var(--serif);
   font-weight: 400;
@@ -329,6 +347,7 @@ em { font-style: italic; color: var(--accent); }
 
 @media (max-width: 860px) {
   .hero__inner { padding-top: 104px; }
+  .hero__photo { max-width: 80%; opacity: 0.14; }
   .split, .project { grid-template-columns: minmax(0, 1fr); }
   .project__sticky { position: static; }
   .tile__cap { display: none; }
